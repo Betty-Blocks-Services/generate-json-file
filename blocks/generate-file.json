@@ -1,5 +1,5 @@
 {
   "dependencies": [],
-  "functions": ["generateJsonFile 1.0"],
+  "functions": ["generateFile 2.0"],
   "includes": []
 }
