@@ -1,0 +1,95 @@
+{
+  "description": "Generate a JSON file, XML file, TXT file or ICS file.",
+  "label": "Generate File",
+  "category": "Misc",
+  "icon": {
+    "name": "FileIcon",
+    "color": "Purple"
+  },
+  "options": [
+    {
+      "name": "fileType",
+      "label": "File type",
+      "meta": {
+        "type": "Select",
+        "default": "json",
+        "values": [
+          { "label": "JSON", "value": "json" },
+          { "label": "XML", "value": "xml" },
+          { "label": "TXT", "value": "txt" },
+          { "label": "ICS", "value": "ics" }
+        ],
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "fileContent",
+      "label": "File Content",
+      "info": "The content for the generated file"
+    },
+    {
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "fileName",
+      "label": "File Name",
+      "info": "The name for the generated file"
+    },
+    {
+      "meta": {
+        "type": "Model",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "model",
+      "label": "Model to save the file into"
+    },
+    {
+      "meta": {
+        "allowedKinds": ["FILE"],
+        "type": "Property",
+        "model": "model",
+        "validations": {
+          "required": true
+        }
+      },
+      "configuration": {
+        "dependsOn": [
+          {
+            "option": "model",
+            "action": "CLEAR"
+          }
+        ]
+      },
+      "name": "property",
+      "label": "Property to save the file into"
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        },
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "result",
+      "label": "Result",
+      "info": "The result file reference. Note: this step will not automatically store the file in the model. You need to use the file reference in the value mapping of a Create Record or Update Record step."
+    }
+  ],
+  "yields": "NONE"
+}
